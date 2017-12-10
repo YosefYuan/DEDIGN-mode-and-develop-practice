@@ -6,7 +6,6 @@ var currying = function (fn) {
             return fn.apply(this, args);
         } else {
             [].push.apply(args, arguments);
-            console.log(arguments.callee);
             return arguments.callee;
         }
     }
