@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="execute">点击我执行命令</button>
+    <button id="undo">点击我执行命令</button>
+    <script>
+        var Tv = {
+            open: function () {
+                console.log("打开电视机");
+            },
+            close: function () {
+                console.log('关上电视机');
+            }
+        };
+
+        var createCommand = function (receiver) {
+            var execute = function () {
+                return receiver.open();
+            };
+
+            var undo = function () {
+                return receiver.close();
+            };
+
+            return {
+                execute: execute,
+                undo: undo
+            }
+        };
+
+        var setCommand = function (command) {
+            document.getElementById('execute').onclick = function () {
+                command.execute();
+            };
+            document.getElementById('undo').onclick = function () {
+                command.undo();
+            };
+        };
+
+        setCommand(createCommand(Tv));
+    </script>
+</body>
+
+</html>
