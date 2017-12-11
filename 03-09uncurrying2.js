@@ -24,6 +24,7 @@ var obj = {
     '2': 3
 };
 
+
 Array.push(obj, 4);
 console.log(obj.length);
 
@@ -34,3 +35,26 @@ console.log(obj);
 Array.forEach(obj, function (i, n) {
     console.log(i);
 });
+
+var call = Function.prototype.call.uncurrying();
+var fn = function (name) {
+    console.log(name);
+};
+call(fn, window, 'sven');
+
+var apply = Function.prototype.apply.uncurrying();
+var fn = function (name) {
+    console.log(this.name);
+    console.log(arguments);
+};
+apply(fn, {
+    name: 'sven'
+}, [1, 2, 3]);
+
+// 
+Function.prototype.uncurrying = function () {
+    var self = this;
+    return function () {
+        return Function.prototype.call.apply(self, arguments);
+    }
+};
