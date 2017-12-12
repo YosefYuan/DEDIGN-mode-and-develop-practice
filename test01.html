@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div1"></div>
+
+    <script>
+        var obj = {
+            myName: 'sven',
+            getName: function () {
+                return this.myName;
+            }
+        };
+        console.log(obj.getName());
+
+        var getName2 = obj.getName;
+        console.log(getName2());
+
+        // getID
+
+        // test1
+        var getId1 = function (id) {
+            return document.getElementById(id);
+        }
+        var test1 = getId1('div1');
+        console.log(test1.id);
+
+        // test2
+        document.getElementById = (function (func) {
+            return function () {
+                return func.apply(document, arguments);
+            }
+        })(document.getElementById);
+        var getId2 = document.getElementById;
+        var test2 = getId2('div1');
+        console.log(test2.id);
+    </script>
+</body>
+
+</html>
