@@ -19,3 +19,15 @@ document.getElementById('loginBtn').onclick = function () {
     var loginLayer = createSingleLoginLayer();
     loginLayer.style.display = 'block';
 };
+
+
+var createSingleIframe = getSingle(function () {
+    var iframe = document.createElement('iframe');
+    document.body.appendChild(iframe);
+    return iframe;
+});
+
+document.getElementById('loginBtn').onclick = function () {
+    var loginLayer = createSingleIframe();
+    loginLayer.src = 'http://baidu.com';
+};
