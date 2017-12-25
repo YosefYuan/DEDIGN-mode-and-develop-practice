@@ -73,16 +73,21 @@ var div = document.getElementById('div');
 
 var animate = new Animate(div);
 
-animate.start('left', 500, 1000, 'sineaseIn');
+animate.start('left', 500, 1000, 'linear');
+// animate.start('left', 500, 1000, 'easeIn');
+// animate.start('left', 500, 1000, 'strongEaseIn');
+// animate.start('left', 500, 1000, 'strongEaseOut');
+// animate.start('left', 500, 1000, 'sineaseIn');
+// animate.start('left', 500, 1000, 'sineaseOut');
 
 
-
-function showStyle() {
-    var style = div.getBoundingClientRect();
-    console.log(style);
-}
-showStyle();
-setTimeout(showStyle, 1100);
+// console
+// function showStyle() {
+//     var style = div.getBoundingClientRect();
+//     console.log(style);
+// }
+// showStyle();
+// setTimeout(showStyle, 1100);
 
 
 
