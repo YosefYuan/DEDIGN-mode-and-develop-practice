@@ -20,3 +20,17 @@ var timeChunk = function (ary, fn, count) {
         }, 200);
     };
 };
+
+var ary = [];
+var wrapper = document.querySelector('#wrapper');
+for (var i = 0; i <= 1000; i++) {
+    ary.push(i);
+};
+var renderFriendList = timeChunk(ary, function (n) {
+    var div = document.createElement('div');
+    div.innerHTML = n;
+    console.log(n);
+    // wrapper.appendChild(div);
+}, 8);
+renderFriendList();
+
