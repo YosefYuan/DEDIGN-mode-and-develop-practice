@@ -31,7 +31,7 @@ var MacroCommand = function () {
     }
 };
 
-var macroCommand = MacroCommand();
+var macroCommand = new MacroCommand();
 macroCommand.add(closeDoorCommand);
 macroCommand.add(openPcCommand);
 macroCommand.add(openQQCommand);
